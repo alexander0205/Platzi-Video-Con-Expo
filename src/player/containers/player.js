@@ -33,16 +33,7 @@ class Player extends Component {
     return (
       <Layout
         loading={this.state.loading}
-        video={
-          <Video
-            source={{uri: 'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'}}
-            style={styles.video}
-            resizeMode="contain"
-            onBuffer={this.onBuffer}
-            onLoad={this.onLoad}
-            paused={this.state.paused}
-          />
-        }
+       
         loader={
           <ActivityIndicator color="red" />
         }

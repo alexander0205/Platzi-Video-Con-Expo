@@ -9,10 +9,14 @@
   },
   "dependencies": {
     "expo": "^35.0.0",
+    "expo-av": "~7.0.0",
+    "expokit": "^35.0.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-video": "2.1.1",
+    "react-navigation": "2.5.3",
+    "react-navigation-redux-helpers": "2.0.2",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
     "redux-persist": "5.9.1"
