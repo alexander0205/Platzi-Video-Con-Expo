@@ -10,7 +10,9 @@ import Icon from '../../sections/components/Icon'
 class About extends Component {
   static   navigationOptions=()=>  {
    return { title:'About',
-   tabBarIcon:<Icon icon="🙄" /> ,}
+   tabBarIcon:<Icon icon="🙄" /> ,
+   drawerIcon:<Icon icon="🙄" /> 
+  }
 }
 componentDidMount(){
  this.focus =  this.props.navigation.addListener('didFocus',()=>{

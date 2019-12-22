@@ -1,7 +1,8 @@
 import {
     createStackNavigator,
     createBottomTabNavigator,
-    createSwitchNavigator
+    createSwitchNavigator,
+    createDrawerNavigator
 } from 'react-navigation';
 import React from 'react'
 import Home from './screens/containers/home'
@@ -15,18 +16,23 @@ import Movie from './screens/containers/movie'
 import Category from './screens/containers/category'
 import Header from './sections/components/header'
 import Icon from './sections/components/Icon'
+import DrawerComponent from './sections/components/drawer'
 const Main = createStackNavigator(
     {
         Home:Home,
-        Movie:Movie,
         Category
     },{
         navigationOptions:{
             header:Header,
 
+        },   cardStyle:{
+            backgroundColor:'with'
         }
     }
 )
+
+
+
 
 const TabNavigator  = createBottomTabNavigator(
     {
@@ -62,8 +68,65 @@ const TabNavigator  = createBottomTabNavigator(
         }
     }
 )
+
+
+const  WithModal =  createStackNavigator({
+    Main:TabNavigator,
+    Movie:Movie,
+},{
+    mode:'modal',
+    headerMode:'none',
+    cardStyle:{
+        backgroundColor:'with'
+    },navigationOptions:{
+        gesturesEnabled:true
+    }
+}
+
+)
+
+
+const DrawerNavigator = createDrawerNavigator({
+    Main:{
+        screen:WithModal,
+        navigationOptions:{
+            title:'Inicio',
+            drawerIcon:<Icon>🏠</Icon>
+        }
+
+    },
+
+    Sobre:{
+        screen:About
+    },
+    Suerte:{
+        screen:Lucky
+    }
+},{
+    drawerWidth:200,
+    drawerBackgroundColor:'#f6f6f6',
+    contentComponent:DrawerComponent,
+    contentOptions:{
+        activeBackgroundColor:'#7aba2f',
+        activeTintColor:'white',
+        inactiveTintColor:'#828282',
+        inactiveBackgroundColor:'white',
+
+        itemStyle:{
+            borderBottomWidth: .2,
+            borderBottomColor: 'rgba(0,0,0,.5)',
+        },labelStyle:{
+            marginHorizontal:0
+        },
+        iconContainerStyle:{
+            marginHorizontal: 5,
+        }
+    }
+})
+
+
 const SwithNavigator  =  createSwitchNavigator({
-    App:TabNavigator,
+    App:DrawerNavigator,
     Loading:Loading,
     Login:Login,
 },{

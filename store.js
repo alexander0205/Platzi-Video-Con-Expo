@@ -4,10 +4,11 @@ import {
    } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import reducer from './reducers/index';
-import storage from 'redux-persist/lib/storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   createReactNavigationReduxMiddleware
 }from 'react-navigation-redux-helpers';
+
 // const store = createStore(reducer, {
 //   suggestionList: [],
 //   categoryList: [],
@@ -30,6 +31,5 @@ const store = createStore(
   persistedReducer,
   applyMiddleware(navigationMiddleware)
   )
-const persistor = persistStore(store)
 
-export { store, persistor };
+export { store };
